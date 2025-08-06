@@ -1,0 +1,21 @@
+import requests
+
+
+BASE_URL = "https://jsonplaceholder.typicode.com/users"
+
+
+def agregar_dispositivo(nombre, trabajo):
+    data = {"name": nombre, "job": trabajo}
+    return requests.post(BASE_URL, json=data)
+
+
+def listar_dispositivos():
+    return requests.get(BASE_URL)
+
+
+def actualizar_dispositivo(id, nombre, trabajo):
+    data = {"name": nombre, "job": trabajo}
+    return requests.put(f"{BASE_URL}/{id}", json=data)
+
+def eliminar_dispositivo(id):
+    return requests.delete(f"{BASE_URL}/{id}")
